@@ -19,7 +19,7 @@ if __name__ == "__main__":
         elif sys.argv[2] == "*":
             print("{} * {} = {}".format(a, b, e))
         elif sys.argv[2] == "/":
-            print("{} / {} = {}".format(a, b, c))
+            print("{} / {} = {}".format(a, b, f))
         else:
             print("Unknown operator. Available operators: +, -, * and /")
             exit(1)
