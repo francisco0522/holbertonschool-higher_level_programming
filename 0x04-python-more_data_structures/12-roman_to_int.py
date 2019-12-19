@@ -8,6 +8,5 @@ def roman_to_int(roman_string):
             idx = roman.index(roman_string[i])
             result = result + num[idx]
         return result
-        #return [replace if x == search else x for x in new]
     else:
         return 0
