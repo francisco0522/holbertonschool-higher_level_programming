@@ -11,7 +11,7 @@ def roman_to_int(roman_string):
                 result = result + num[idx]
                 prev = num[idx]
             else:
-                result = num[idx] - result
+                result = num[idx] - 2 * prev + result
                 prev = num[idx]
         return result
     else:
