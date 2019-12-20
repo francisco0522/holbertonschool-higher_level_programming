@@ -6,4 +6,6 @@ def complex_delete(a_dictionary, value):
 				if v == value:
 					del a_dictionary[key]
 					break
-	return a_dictionary
+		return a_dictionary
+	else:
+		return a_dictionary
