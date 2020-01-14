@@ -39,3 +39,6 @@ Now use it:
 
     >>> add_integer(0001, 1)
     2
+
+    >>> add_integer(-5)
+    93
