@@ -21,8 +21,8 @@ def matrix_divided(matrix, div):
     if (not isinstance(matrix, list) or matrix == [] or
         not all(isinstance(row, list) for row in matrix) or
         not all((isinstance(element, int) or isinstance(element, float)
-        for element in [n for row in matrix for n in row]))):
-            raise TypeError(matrixCase1)
+                for element in [n for row in matrix for n in row]))):
+                    raise TypeError(matrixCase1)
     if not all(len(row) == len(matrix[0]) for row in matrix):
         raise TypeError(matrixCase2)
     return ([list(map(lambda x: round(x / div, 2), i)) for i in matrix])
