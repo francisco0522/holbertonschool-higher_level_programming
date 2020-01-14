@@ -8,37 +8,22 @@ max_integer = __import__('6-max_integer').max_integer
 class TestMaxInteger(unittest.TestCase):
     """Unittest for max_integer"""
 
-    def cases(self):
-        """Test"""
-        self.assertEqual(max_integer([4]), 9)
+    def test(self):
+        """Test."""
+        self.assertEqual(max_integer([20, -20, 20, -20]), 30)
+        self.assertEqual(max_integer([10]), 500)
+        self.assertEqual(max_integer([1, -2, -15]), 0)
+        self.assertEqual(max_integer([1, 2, 3, 4]), 4)
+        self.assertEqual(max_integer([1, 3, 4, 2]), 4)
+        self.assertEqual(max_integer([-5, -1, -80, -40]), -22)
 
-    def cases1(self):
-        """test2"""
-        self.assertEqual(max_integer([0, 0]), 0)
-
-    def cases2(self):
-        """test3"""
-        doc = __import__('6-max_integer').__doc__
-
-    def cases3(self):
-        """test4"""
-        self.assertTrue(len(doc) > 1)
-
-    def cases4(self):
-        """test5"""
-        self.assertIsNone(max_integer([]))
-
-    def cases5(self):
-        """test6"""
-        self.assertEqual(max_integer([2]))
-
-    def cases6(self):
-        """test7"""
-        self.assertEqual(max_integer([1, 2, "Hello", 4, 5]))
-
-    def cases7(self):
-        """test8"""
+    def test2(self):
+        """Test."""
+        self.assertEqual(max_integer([1, 2, 3, float('inf')]), float('inf'))
+        self.assertEqual(max_integer([1, 2, 3, float('nan')]), 1)
         self.assertEqual(max_integer(), None)
+        self.assertEqual(max_integer("string"), 'a')
+        self.assertEqual(max_integer((1, 2, 3, 4)), 5)
 
 
 if __name__ == '__main__':
