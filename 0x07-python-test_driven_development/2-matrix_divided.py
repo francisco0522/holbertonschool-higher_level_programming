@@ -10,7 +10,7 @@ def matrix_divided(matrix, div):
     """
     Returns a new matrix
     """
-    new_matrix = [[0, 0, 0], [0, 0, 0]]
+    new_matrix = []
     matrixCase1 = "matrix must be a matrix (list of lists) of integers/floats"
     matrixCase2 = "Each row of the matrix must have the same size"
     matrixCase3 = "div must be a number"
@@ -19,7 +19,7 @@ def matrix_divided(matrix, div):
         raise TypeError(matrixCase3)
     if div == 0:
         raise ZeroDivisionError(matrixCase4)
-    if not isinstance(matrix, list):
+    if not isinstance(matrix, list) or matrix == []:
         raise TypeError(matrixCase1)
     for i in range(len(matrix)):
         if len(matrix[i]) > len(matrix[i - 1]):

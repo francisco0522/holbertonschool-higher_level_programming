@@ -37,3 +37,5 @@ Now use it:
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
+    >>> add_integer(0001, 1)
+    2
