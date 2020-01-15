@@ -25,15 +25,17 @@ Now use it:
     Traceback (most recent call last):
     TypeError: b must be an integer
 
-    >>> add_integer(None)
+    >>> add_integer(float("nan"))
     Traceback (most recent call last):
-    TypeError: a must be an integer
+    ValueError: cannot convert float NaN to integer
 
-    >>> add_integer(NaN)
-    Traceback (most recent call last):
-    NameError: name 'NaN' is not defined
-
-    >>> add_integer(float("inf"))
+    >>> add_integer(2, float("inf"))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
+    >>> add_integer(-5)
+    93
+
+    >>> add_integer(float("test"))
+    Traceback (most recent call last):
+    ValueError: could not convert string to float: 'test'

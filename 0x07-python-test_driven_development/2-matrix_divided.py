@@ -10,7 +10,6 @@ def matrix_divided(matrix, div):
     """
     Returns a new matrix
     """
-    new_matrix = [[0, 0, 0], [0, 0, 0]]
     matrixCase1 = "matrix must be a matrix (list of lists) of integers/floats"
     matrixCase2 = "Each row of the matrix must have the same size"
     matrixCase3 = "div must be a number"
@@ -19,14 +18,11 @@ def matrix_divided(matrix, div):
         raise TypeError(matrixCase3)
     if div == 0:
         raise ZeroDivisionError(matrixCase4)
-    if not isinstance(matrix, list):
-        raise TypeError(matrixCase1)
-    for i in range(len(matrix)):
-        if len(matrix[i]) > len(matrix[i - 1]):
-            raise TypeError(matrixCase2)
-        for j in range(len(matrix[i])):
-            value = matrix[i][j]
-            if not isinstance(value, int) and not isinstance(value, float):
-                raise TypeError(matrixCase1)
-            new_matrix[i][j] = float("{0:.2f}".format(value / div))
-    return new_matrix
+    if (not isinstance(matrix, list) or matrix == [] or
+        not all(isinstance(row, list) for row in matrix) or
+        not all((isinstance(element, int) or isinstance(element, float)
+                for element in [n for row in matrix for n in row]))):
+                    raise TypeError(matrixCase1)
+    if not all(len(row) == len(matrix[0]) for row in matrix):
+        raise TypeError(matrixCase2)
+    return ([list(map(lambda x: round(x / div, 2), i)) for i in matrix])
