@@ -1,7 +1,6 @@
 """Write a class Rectangle that defines a rectangle"""
 
 
-
 class Rectangle:
     """Class"""
     def __init__(self, width=0, height=0):
