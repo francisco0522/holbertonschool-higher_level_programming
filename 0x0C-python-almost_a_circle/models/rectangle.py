@@ -12,6 +12,7 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
+        """Call the super class with id"""
         super().__init__(id)
 
     @property

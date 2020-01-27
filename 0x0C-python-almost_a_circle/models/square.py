@@ -5,7 +5,6 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """Class Square"""
-    __nb_objects = 0
 
     def __init__(self, size, x=0, y=0, id=None):
         """init"""
