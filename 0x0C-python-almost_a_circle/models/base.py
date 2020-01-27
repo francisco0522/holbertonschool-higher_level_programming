@@ -32,4 +32,3 @@ class Base:
                 obj.append(cls.to_dictionary(i))
         with open(cls.__name__ + ".json", "w") as file:
             file.write(cls.to_json_string(obj))
-
