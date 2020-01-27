@@ -1,13 +1,15 @@
 #!/usr/bin/python3
-"""Base"""
+"""Write the first class Base:"""
+import json
+from os import path
 
 
 class Base:
-    """Class"""
+    """Class base"""
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """init"""
+        """Inicialice class"""
         if id is not None:
             self.id = id
         else:
