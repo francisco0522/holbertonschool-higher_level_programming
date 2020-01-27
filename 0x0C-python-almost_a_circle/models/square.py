@@ -14,7 +14,7 @@ class Square(Rectangle):
     @property
     def size(self):
         """property function"""
-        return self.__size
+        return self.__width
 
     @size.setter
     def size(self, value):
@@ -23,15 +23,13 @@ class Square(Rectangle):
             raise TypeError("width must be an integer")
         elif value <= 0:
             raise ValueError("width must be > 0")
-        self.__size = value
+        self.__height = value
+        self.__width = value
 
     def __str__(self):
         """should print, and str() should return"""
-        string = "[" + str(self.__class__.__name__) + "] "
-        string += "(" + str(self.id) + ") " + \
-            str(self.x) + "/" + str(self.y) + " - " + \
-            str(self.width)
-        return string
+        return("[Square] ({}) {}/{} - {}".format
+               (self.id, self.x, self.y, self.width))
 
     def update(self, *args, **kwargs):
         """update"""
