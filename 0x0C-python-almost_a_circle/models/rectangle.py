@@ -23,7 +23,7 @@ class Rectangle(Base):
         elif value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
-    
+
     @property
     def height(self):
         return self.__height
@@ -59,7 +59,7 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-    
+
     def area(self):
         return self.__width * self.__height
 
@@ -75,3 +75,27 @@ class Rectangle(Base):
 
     def __str__(self):
         return("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height ))
+
+    def update(self, *args, **kwargs):
+        for i, j in enumerate(args):
+            if i == 0:
+                self.id = j
+            elif i == 1:
+                self.width = j
+            elif i == 2:
+                self.height = j
+            elif i == 3:
+                self.x = j
+            elif i == 4:
+                self.y = j
+        if "id" in kwargs:
+            self.id = kwargs["id"]
+        if "width" in kwargs:
+            self.width = kwargs["width"]
+        if "height" in kwargs:
+            self.height = kwargs["height"]
+        if "x" in kwargs:
+            self.x = kwargs["x"]
+        if "y" in kwargs:
+            self.y = kwargs["y"]
+    
