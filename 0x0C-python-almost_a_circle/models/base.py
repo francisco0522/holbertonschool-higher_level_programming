@@ -51,3 +51,12 @@ class Base:
             object = Square(1)
         object.update(**dictionary)
         return object
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list"""
+        if not path.isfile(cls.__name__ + ".json"):
+            return []
+        with open(cls.__name__ + ".json", "r", encoding="utf-8") as f:
+            return [cls.create(**d) for d in cls.from_json_string(f.read())]
+
