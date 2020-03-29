@@ -22,6 +22,6 @@ if __name__ == "__main__":
     state = session.query(State).filter_by(id=2).all()
     for cases in state:
         print("{}".format(cases.id))
-    state.name = 'New Mexico'
+    cases.name = 'New Mexico'
     session.commit()
     session.close()
