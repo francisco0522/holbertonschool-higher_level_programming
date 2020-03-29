@@ -22,6 +22,6 @@ if __name__ == "__main__":
     louisiana = State(name="Louisiana")
     session.add(louisiana)
     session.commit()
-    state = session.query(State).count().all()
+    state = session.query(State).count()
     print("{}".format(state))
     session.close()
