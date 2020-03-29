@@ -17,7 +17,6 @@ if __name__ == "__main__":
            ORDER BY cities.id"""
     cursor.execute(command, (argv[4],))
     rows = cursor.fetchall()
-    for i in rows:
-        print(i)
+    print(", ".join(citistate[0] for citistate in rows))
     cursor.close()
     connectDb.close()
