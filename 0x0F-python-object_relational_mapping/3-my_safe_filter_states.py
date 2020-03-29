@@ -11,8 +11,9 @@ if __name__ == "__main__":
     connectDb = MySQLdb.connect(host='localhost', user=user,
                                 passwd=passwd, db=db, port=3306)
     cursor = connectDb.cursor()
-    cursor.execute("""SELECT * FROM states
-        WHERE BINARY states.name = %s ORDER BY states.id""".format(arg))
+    command = cursor.execute("""SELECT * FROM states
+        WHERE BINARY states.name = %s ORDER BY states.id""")
+    numrows = cursor.execute(command, (argv[4],))
     rows = cursor.fetchall()
     for i in rows:
         print(i)
