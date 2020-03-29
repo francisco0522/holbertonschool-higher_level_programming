@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """contains the class definition of a State and an instance"""
-import sys
+from sys import argv
 from model_state import Base, State
 from sqlalchemy import (create_engine)
+from sqlalchemy.orm import sessionmaker
 
 
-if __name__ == "__main__":´
+if __name__ == "__main__":
     user = argv[1]
     passwd = argv[2]
     db = argv[3]
