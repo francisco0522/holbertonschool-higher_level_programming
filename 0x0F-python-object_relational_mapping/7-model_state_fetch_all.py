@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""contains the class definition of a State and an instance"""
+"""lists all State objects from the database"""
 from sys import argv
 from model_state import Base, State
 from sqlalchemy import (create_engine)
@@ -13,7 +13,7 @@ if __name__ == "__main__":
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost/{}'
         .format(user, passwd, db), pool_pre_ping=True)
-
+Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 for state in session.query(State).order_by(State.id).all():
