@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 """lists all State objects from the database"""
-
 from sys import argv
-from sqlalchemy import *
-import warnings
 from model_state import Base, State
+from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 
@@ -18,7 +16,7 @@ if __name__ == "__main__":
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
-states = session.query(State).all()
-for model in states:
-    print(model)
+records = session.query(State).order_by(State.id).all()
+for row in records:
+    print("{}: {}".format(row.id, row.name))
 session.close()
