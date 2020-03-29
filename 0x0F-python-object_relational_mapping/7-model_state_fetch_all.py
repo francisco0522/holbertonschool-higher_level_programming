@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """lists all State objects from the database"""
-from sys import argv
+from sqlalchemy import *
+import warnings
+from sqlalchemy import exc as sa_exc
+import sys
 from model_state import Base, State
-from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 
