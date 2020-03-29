@@ -12,7 +12,7 @@ if __name__ == "__main__":
                                 passwd=passwd, db=db, port=3306)
     cursor = connectDb.cursor()
     cursor.execute(
-        "SELECT * FROM states WHERE name = '{}' ORDER BY states.id"
+        "SELECT * FROM states WHERE BINARY states.name = '{}' ORDER BY states.id"
         .format(arg))
     rows = cursor.fetchall()
     for i in rows:
