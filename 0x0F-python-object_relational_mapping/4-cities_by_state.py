@@ -10,7 +10,7 @@ if __name__ == "__main__":
     connectDb = MySQLdb.connect(host='localhost', user=user,
                                 passwd=passwd, db=db, port=3306)
     cursor = connectDb.cursor()
-    command = """SELECT * FROM cities.id, cities.name, states.name
+    command = """SELECT cities.id, cities.name, states.name
            FROM cities, states WHERE cities.state_id = states.id
            ORDER BY cities.id"""
     cursor.execute(command)
