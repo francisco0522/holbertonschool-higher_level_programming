@@ -4,7 +4,6 @@
 from sys import argv
 from sqlalchemy import *
 import warnings
-from sqlalchemy import exc as sa_exc
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
 
