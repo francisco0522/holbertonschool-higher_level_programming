@@ -2,10 +2,10 @@
 """lists all State objects from the database"""
 from sys import argv
 from model_state import Base, State
+from model_city import City
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import func
-from model_city import City
 
 
 if __name__ == "__main__":
@@ -19,9 +19,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    s = session.query(State).order_by(City.id).all()
-    c = session.query(City).order_by(City.id).all()
+    d = session.query(State, City).filter(State.id == City.state_id)
     for state in d:
-        print("{}: ({}) {}".format(state.name, c.id, c.name))
+        print("{}: ({}) {}".format(state[0].name, state[1].id, state[1].name))
     session.commit()
     session.close()
