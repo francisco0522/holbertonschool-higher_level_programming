@@ -8,8 +8,7 @@ if (process.argv.length <= 3) {
     if (big < process.argv[i]) {
       second = big;
       big = process.argv[i];
-    }
-    if (big === process.argv[i]) {
+    } else if (big === process.argv[i]) {
       second = big;
     }
   }
