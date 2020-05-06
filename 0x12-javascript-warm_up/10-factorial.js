@@ -1,12 +1,10 @@
 #!/usr/bin/node
 const a = parseInt(process.argv[2], 10);
-let b = 1;
 
 function factorial (a) {
-  for (let i = 0; i < a; i++) {
-    const fact = a - i;
-    b = b * fact;
+  if (a === 0) {
+    return 1;
   }
-  console.log(b);
+  return (a * factorial(a - 1));
 }
-factorial(a);
+console.log(factorial(a));
