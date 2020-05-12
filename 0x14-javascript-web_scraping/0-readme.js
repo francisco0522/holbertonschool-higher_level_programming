@@ -1,9 +1,8 @@
 #!/usr/bin/node
 const url = process.argv[2];
-/* File System Object */
-var fs = require('fs');
 
-/* Read File */
+const fs = require('fs');
+
 fs.readFile(url, 'utf8', function (error, data) {
   if (error) {
     console.log(error);
