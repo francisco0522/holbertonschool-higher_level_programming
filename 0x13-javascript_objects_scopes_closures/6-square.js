@@ -12,7 +12,7 @@ class Square extends require('./5-square') {
         if (c === undefined) {
           x += 'X';
         } else {
-          x += 'C';
+          x += c;
         }
       }
       console.log(x);
