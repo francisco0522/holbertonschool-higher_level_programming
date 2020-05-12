@@ -1,4 +1,5 @@
 #!/usr/bin/node
+let x = '';
 
 class Square extends require('./5-square') {
   constructor (s) {
@@ -6,12 +7,16 @@ class Square extends require('./5-square') {
   }
 
   charPrint (c) {
-    if (typeof c === 'undefined') {
-      this.print();
-    } else {
-      for (let i = 0; i < this.height; i++) {
-        console.log(c.repeat(this.width));
+    for (let i = 0; i < this.height; i++) {
+      for (let j = 0; j < this.width; j++) {
+        if (c === undefined) {
+          x += 'X';
+        } else {
+          x += 'C';
+        }
       }
+      console.log(x);
+      x = '';
     }
   }
 }
