@@ -3,14 +3,16 @@ const request = require('request');
 const url = process.argv[2];
 const file = process.argv[3];
 
-request(url, { json: true }, (err, res, body) => {
-  if (err) { return console.log(err); }
+request(url, function (error, response, body) {
+  if (error) {
+    console.log('code:', response && response.statusCode);
+  }
 
   const fs = require('fs');
 
   fs.writeFile(file, body, function (error, data) {
     if (error) {
-      console.log(error);
+      return console.error(error);
     }
   });
 });
