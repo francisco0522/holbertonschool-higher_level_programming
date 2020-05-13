@@ -7,7 +7,7 @@ request(url, { json: true }, (err, res, body) => {
     let x = 0;
     for (const film of body.results) {
       for (const character of film.characters) {
-        if (character == 'https://swapi-api.hbtn.io/api/people/18/') {
+        if (character.endsWith('/18/')) {
           x += 1;
         }
       }
