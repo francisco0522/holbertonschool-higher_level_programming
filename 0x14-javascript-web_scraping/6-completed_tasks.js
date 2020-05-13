@@ -2,8 +2,10 @@
 const request = require('request');
 const url = process.argv[2];
 
-request(url, { json: true }, (err, res, body) => {
-  if (err) { console.log('code:', res.statusCode); } else {
+request(url, function (error, response, body) {
+  if (error) {
+    console.log(error);
+  } else {
     let task = 0;
     let y = 1;
     const result = {};
