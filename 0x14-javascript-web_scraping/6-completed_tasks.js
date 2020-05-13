@@ -2,20 +2,23 @@
 const request = require('request');
 const url = process.argv[2];
 
-request(url, { json: true }, (err, res, body) => {
-  if (err) { console.log(err); } else {
+request(url, function (error, response, body) {
+  if (error) {
+    console.log(error);
+  } else {
+    const jsonBody = JSON.parse(body);
     let task = 0;
     let y = 1;
     const result = {};
-    for (let i = 0; i < body.length; i++) {
+    for (let i = 0; i < jsonBody.length; i++) {
       if (i > 0) {
-        y = body[i - 1].userId;
+        y = jsonBody[i - 1].userId;
       }
-      if (body[i].userId !== y) {
+      if (jsonBody[i].userId !== y) {
         result[y] = task;
         task = 0;
       }
-      if (body[i].completed === true) {
+      if (jsonBody[i].completed === true) {
         task = task + 1;
       }
     }
