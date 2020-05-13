@@ -8,20 +8,20 @@ request(url, function (error, response, body) {
   } else {
     let task = 0;
     let y = 1;
-    const result = {};
+    const res = {};
     for (let i = 0; i < body.length; i++) {
       if (i > 0) {
         y = body[i - 1].userId;
       }
       if (body[i].userId !== y) {
-        result[y] = task;
+        res[y] = task;
         task = 0;
       }
       if (body[i].completed === true) {
         task = task + 1;
       }
     }
-    result[y] = task;
-    console.log(result);
+    res[y] = task;
+    console.log(res);
   }
 });
